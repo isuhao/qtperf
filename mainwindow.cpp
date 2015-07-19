@@ -81,19 +81,19 @@ float MainWindow::runTest(int testnum) {
         line = QString("QTextEdit scroll - %1 s").arg(result);
         break;
     case 11:
-        result = test_qpainter_lines(tests);
+        result = test_qpainter_lines(1);
         line = QString("QPainter lines - %1 s").arg(result);
         break;
     case 12:
-        result = test_qpainter_circles(tests);
+        result = test_qpainter_circles(1);
         line = QString("QPainter circles - %1 s").arg(result);
         break;
     case 13:
-        result = test_qpainter_text(tests);
+        result = test_qpainter_text(1);
         line = QString("QPainter text - %1 s").arg(result);
         break;
     case 14:
-        result = test_qpainter_image(tests);
+        result = test_qpainter_image(1);
         line = QString("QPainter pixmap - %1 s").arg(result);
         break;
     default:
@@ -278,7 +278,7 @@ float MainWindow::test_qpainter_text(int count) {
     ui->tabMain->setCurrentIndex(4);
     QTime start = QTime::currentTime();
     ui->testDrawWidget->setType(TestWidget::TEST_TEXT);
-    for (int i=0; i<count*100; ++i) {
+    for (int i=0; i<count*1000; ++i) {
         ui->testDrawWidget->repaint();
     }
     ui->testDrawWidget->type = TestWidget::TEST_IDLE;
@@ -289,7 +289,7 @@ float MainWindow::test_qpainter_image(int count) {
     ui->tabMain->setCurrentIndex(4);
     QTime start = QTime::currentTime();
     ui->testDrawWidget->setType(TestWidget::TEST_PIXMAP);
-    for (int i=0; i<count*10; ++i) {
+    for (int i=0; i<count*1000; ++i) {
         ui->testDrawWidget->repaint();
     }
     ui->testDrawWidget->type = TestWidget::TEST_IDLE;
